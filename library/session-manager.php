@@ -21,7 +21,7 @@
                 exit;
             }
         }
-        public static function CheckSession($id, $key)
+        public static function GetSession($id, $key)
         {
             $sql = "SELECT * FROM sessions WHERE id='".(int)$id."' LIMIT 1";
             $result = self::$mysqli->query($sql);

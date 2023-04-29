@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Апр 26 2023 г., 23:34
+-- Время создания: Апр 27 2023 г., 01:03
 -- Версия сервера: 5.7.27-30
 -- Версия PHP: 7.1.33
 
@@ -44,7 +44,8 @@ CREATE TABLE `sessions` (
 -- Индексы таблицы `sessions`
 --
 ALTER TABLE `sessions`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `hash` (`hash`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц

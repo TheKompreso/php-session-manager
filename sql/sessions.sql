@@ -33,7 +33,8 @@ CREATE TABLE `sessions` (
   `user` int(11) NOT NULL,
   `rights` int(11) NOT NULL,
   `starttime` bigint(20) NOT NULL,
-  `endtime` bigint(20) NOT NULL
+  `endtime` bigint(20) NOT NULL,
+  `timelife` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

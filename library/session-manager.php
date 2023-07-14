@@ -1,4 +1,5 @@
 <?php
+    // Engine
     class SessionManager
     {
         static $mysqli;
@@ -47,5 +48,23 @@
             $sql = "UPDATE sessions SET endtime=".time()."+timelife WHERE id=$id";
             self::$mysqli->query($sql);
         }
+        public static function SessionSetRights($id, $rights)
+        {
+            $sql = "UPDATE a_sessions SET rights=$rights WHERE id=$id";
+            self::$mysqli->query($sql);
+        }
+        public static function SessionSetTimelife($id, $timelife)
+        {
+            $sql = "UPDATE a_sessions SET timelife=$timelife WHERE id=$id";
+            self::$mysqli->query($sql);
+        }
+    }
+    // Custom code
+    abstract class SessionRights
+    {
+        const NotAuth           = 0b00000000;
+        const ResetPassword     = 0b00000001;
+        const AccessPublicInfo  = 0b00000010;
+        const FullRights        = 0b11111110;
     }
 ?>

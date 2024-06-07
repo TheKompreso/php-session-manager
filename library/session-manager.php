@@ -9,8 +9,8 @@
         }
         public static function CreateSession($user, $timelife, $rights, $solt)
         {
-            $result['key'] = hash('sha256', $user."|".$timelife."|".$rights."|".$solt."|".time());
-            $sql = "INSERT INTO sessions (`id`,`hash`,`user`,`rights`,`starttime`,`endtime`,`timelife`) VALUES (NULL,'".$result['key']."','".$user."',$rights,".time().",".(time()+$timelife).",$timelife)";
+            $result['hash'] = hash('sha256', $user."|".$timelife."|".$rights."|".$solt."|".time());
+            $sql = "INSERT INTO sessions (`id`,`hash`,`user`,`rights`,`starttime`,`endtime`,`timelife`) VALUES (NULL,'".$result['hash']."','".$user."',$rights,".time().",".(time()+$timelife).",$timelife)";
             if (self::$mysqli->query($sql) !== false) 
             {
                 $result['id'] = self::$mysqli->insert_id;
